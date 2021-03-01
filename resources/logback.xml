@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <Target>System.out</Target>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- <appender name="FILE" class="ch.qos.logback.core.FileAppender"> -->
+  <!--   <File>logs/cljtemplate.out</File> -->
+  <!--   <encoder> -->
+  <!--     <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n</pattern> -->
+  <!--   </encoder> -->
+  <!-- </appender> -->
+
+
+  <logger name="dev" level="DEBUG"/>
+
+  <logger name="cljtemplate" level="INFO"/>
+
+  <root level="WARN">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+</configuration>

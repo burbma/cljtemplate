@@ -1,0 +1,27 @@
+{:mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org/"}}
+ :paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.2"}
+        org.clojure/test.check {:mvn/version "1.1.0"}
+
+        ;; Logging
+        ch.qos.logback/logback-classic {:mvn/version "1.2.3"}
+        ch.qos.logback/logback-core {:mvn/version "1.2.3"}
+        org.clojure/tools.logging {:mvn/version "1.1.0"}
+        org.slf4j/slf4j-api {:mvn/version "1.7.30"}}
+
+ :aliases
+ {:1.10.1 {:override-deps {org.clojure/clojure {:mvn/version "1.10.1"}}}
+  :dev {:extra-paths #{"dev"}
+        :extra-deps {cider/cider-nrepl {:mvn/version "0.25.5"}
+                     criterium/criterium {:mvn/version "0.4.6"}
+                     org.clojure/tools.namespace {:mvn/version "1.1.0"}}
+        :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
+  :test {:extra-paths #{"test"}
+         :extra-deps {lambdaisland/kaocha {:mvn/version "1.0.732"}}}
+  :uberjar {:replace-deps {seancorfield/depstar {:mvn/version "2.0.187"}}
+            :exec-fn hf.depstar/uberjar
+            :exec-args {:jar "cljtemplate-standalone.jar"
+                        :aot true
+                        :main-class cljtemplate.core}}}}
+

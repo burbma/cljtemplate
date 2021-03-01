@@ -1,0 +1,9 @@
+#kaocha/v1
+{:tests [{:id :unit
+          :test-paths ["src" "test"]
+          :ns-patterns ["cljtemplate.unit.*"]}
+         {:id :integration
+          :test-paths ["src" "test"]
+          :ns-patterns ["cljtemplate.integration.*"]}]
+ :plugins [:kaocha.plugin/profiling
+           :kaocha.plugin.alpha/spec-test-check]}
